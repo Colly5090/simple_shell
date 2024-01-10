@@ -35,6 +35,7 @@ void exec_external(char **args, char *path)
 			wpid = waitpid(childPid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
+	exit(0);
 	(void)wpid;
 	fflush(stdout);
 }
