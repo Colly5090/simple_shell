@@ -12,7 +12,7 @@ void exec_external(char **args, char *path)
 
 	if (path == NULL)
 	{
-		perror("./shell: ");
+		perror("./shell");
 		return;
 	}
 
