@@ -22,7 +22,7 @@ char *getpath(char *inputs)
 			exit(1);
 		}
 		inputlength = _strlen(inputs);
-		tokenpath = _strtok(copyEnvar, ":");
+		tokenpath = strtok(copyEnvar, ":");
 		while (tokenpath != NULL)
 		{
 			lengthofdir = _strlen(tokenpath);
@@ -45,7 +45,7 @@ char *getpath(char *inputs)
 			else
 			{
 				free(pathfile);
-				tokenpath = _strtok(NULL, ":");
+				tokenpath = strtok(NULL, ":");
 			}
 		}
 		free(copyEnvar);

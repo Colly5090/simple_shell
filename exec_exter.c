@@ -12,7 +12,7 @@ void exec_external(char **args, char *path)
 
 	if (path == NULL)
 	{
-		perror("./shell ");
+		perror("./shell: ");
 		return;
 	}
 
@@ -21,27 +21,19 @@ void exec_external(char **args, char *path)
 	{
 		if (execv(path, args) == -1)
 		{
-			perror("./shell execv: ");
+			perror("./shell: execv: ");
 			exit(EXIT_FAILURE);
 		}
 	}
 	else if (childPid < 0)
 	{
-		perror("./shell fork: ");
+		perror("./shell: fork: ");
 	}
 	else
 	{
 		do {
 			wpid = waitpid(childPid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		if (WIFEXITED(status))
-			exit(WEXITSTATUS(status));
-		else if (WIFSIGNALED(status))
-			exit(1);
-		else
-			exit(1);
-
-
 	}
 	(void)wpid;
 	fflush(stdout);

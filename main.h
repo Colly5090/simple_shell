@@ -13,7 +13,6 @@
 #include <limits.h>
 #include <string.h>
 #include <sys/stat.h>
-#include <ncurses.h>
 
 /*struct stat buffer;*/
 extern char **environ;

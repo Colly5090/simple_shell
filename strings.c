@@ -116,17 +116,17 @@ unsigned int _strspn(char *string, const char *subset)
  * @c: the character to be located
  * Return: Null if failed or c on success
  */
-char *_strchr(char *string, char c)
-{
-	int x;
+/*char *_strchr(char *string, char c)*/
+/*{*/
+	/*int x;*/
 
-	for (x = 0; string[x] >= '\0'; x++)
-	{
-		if (string[x] == c)
-		{
-			return (&string[x]);
-		}
-	}
-	return (0);
-}
+	/*for (x = 0; string[x] >= '\0'; x++)*/
+	/*{*/
+		/*if (string[x] == c)*/
+		/*{*/
+			/*return (&string[x]);*/
+		/*}*/
+	/*}*/
+	/*return (0);*/
+/*}*/
 

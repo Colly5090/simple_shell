@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		length = _strlen(input);
 		if (length > 0 && input[length - 1] == '\n')
 			input[length - 1] = '\0';
-		if (_strchr(input, ';') != NULL)
+		if (strchr(input, ';') != NULL)
 			separator(input);
 		else
 		{
