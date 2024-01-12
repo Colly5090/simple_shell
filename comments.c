@@ -9,14 +9,8 @@ void comment(char *input)
 	char *check;
 
 	check = strchr(input, '#');
-	while (check != NULL)
+	if (check != NULL)
 	{
-		if (check == input || *(check - 1) == ' ')
-			check = '\0';
-		check = strstr(check + 1, "#");
+		*check = '\0';
 	}
-	/*if (check != NULL)*/
-	/*{*/
-		/* *check = '\0';*/
-	/*}*/
 }

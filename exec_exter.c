@@ -22,7 +22,7 @@ void exec_external(char **args, char *path)
 		if (execv(path, args) == -1)
 		{
 			perror("./shell: execv: ");
-			exit(EXIT_FAILURE);
+			exit(1);
 		}
 	}
 	else if (childPid < 0)
@@ -35,7 +35,6 @@ void exec_external(char **args, char *path)
 			wpid = waitpid(childPid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
-	exit(0);
 	(void)wpid;
 	fflush(stdout);
 }

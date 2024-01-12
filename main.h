@@ -44,5 +44,7 @@ char *filechecker(char *strg);
 int myownexit(char **args);
 int inbuilt(char *str);
 int _strlen(char *str);
+/*int exec_external(char **args, char *path);*/
+void exec_non_interactive(char **args, char *path);
 
 #endif

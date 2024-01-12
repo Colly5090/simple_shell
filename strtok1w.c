@@ -9,7 +9,7 @@ char **token_input(char *input)
 {
 	char **new_strings = NULL, *token;
 	int numoftoken = 0;
-	int x = 0;
+	int x = 0, i;
 	const char *delim = " ";
 	char *copy_lineptr = strdup(input);
 
@@ -28,10 +28,10 @@ char **token_input(char *input)
 	new_strings = malloc(sizeof(char *) * (numoftoken + 1));
 	if (new_strings == NULL)
 	{
+		perror("./shell: Memory Error");
 		free(copy_lineptr);
-		/*perror("./shell: Memory Error");*/
-		/*exit(EXIT_FAILURE);*/
-		return (NULL);
+		exit(EXIT_FAILURE);
+		/*return (NULL);*/
 	}
 	token = _strtok(input, delim);
 	while (token != NULL)
@@ -41,6 +41,13 @@ char **token_input(char *input)
 		{
 			/*free(new_strings[x]);*//*edited*/
 			perror("./shell: Memory Error");
+			/*free(copy_lineptr);*/
+			for (i = 0; i < x; i++)
+			{
+				free(new_strings[x]);
+			}
+			free(new_strings);
+			free(copy_lineptr);
 			exit(EXIT_FAILURE);
 		}
 		token = _strtok(NULL, delim);
